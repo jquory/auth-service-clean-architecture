@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+database:
+  host: localhost
+  port: 5432
+  user: postgres
+  password: P@ssw0rd
+  dbname: go-postgres
+  sslmode: disable
+  max_connection_pool: 10
+  max_idle_time: 5
+  max_lifetime_pool: 30
+
+jwt:
+  jwt_secret: P@ssw0rd
+  jwt_expire_in_minutes: 60
+
+OAuth:
+  client_id: Asomething_jr
+  client_secret: Jinx|Pro|Amanda
