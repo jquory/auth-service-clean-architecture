@@ -1,7 +1,7 @@
 package database
 
 import (
-	"e-rt/config"
+	"auth-service/config"
 	"fmt"
 	"github.com/stretchr/testify/assert"
 	"testing"

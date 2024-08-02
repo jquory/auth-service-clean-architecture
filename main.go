@@ -1,1 +1,1 @@
-package e_rt
+package auth_service

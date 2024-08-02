@@ -1,7 +1,7 @@
 package config
 
 import (
-	"e-rt/app/common/exceptions"
+	"auth-service/app/common/exceptions"
 	"github.com/gofiber/fiber/v2"
 )
 

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"e-rt/app/entities"
-	"e-rt/config"
-	"e-rt/database"
+	"auth-service/app/entities"
+	"auth-service/config"
+	"auth-service/database"
 	"log"
 )
 

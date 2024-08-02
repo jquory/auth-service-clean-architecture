@@ -1,7 +1,7 @@
 package exceptions
 
 import (
-	"e-rt/app/dto"
+	"auth-service/app/dto"
 	"encoding/json"
 	"errors"
 	"github.com/gofiber/fiber/v2"

@@ -1,7 +1,7 @@
 package logs
 
 import (
-	"e-rt/common/exceptions"
+	"auth-service/app/common/exceptions"
 	"github.com/sirupsen/logrus"
 	"io"
 	"os"

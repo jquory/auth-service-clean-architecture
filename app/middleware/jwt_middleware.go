@@ -1,9 +1,9 @@
 package middleware
 
 import (
-	"e-rt/app/common/logs"
-	"e-rt/app/dto"
-	"e-rt/config"
+	"auth-service/app/common/logs"
+	"auth-service/app/dto"
+	"auth-service/config"
 	jwtware "github.com/gofiber/contrib/jwt"
 	"github.com/gofiber/fiber/v2"
 	"github.com/golang-jwt/jwt/v5"

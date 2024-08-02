@@ -1,7 +1,7 @@
 package database
 
 import (
-	"e-rt/config"
+	"auth-service/config"
 	"fmt"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
