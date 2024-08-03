@@ -15,11 +15,13 @@ type User struct {
 	Email          *string
 	PhoneNumber    *string
 	ProfilePicture *string
-	RoleGroupId    int64
+	RoleGroupId    uuid.UUID
 }
 
 type UserRepository interface {
 	Authentication(ctx context.Context, username string) (entities.User, error)
 	Create(user User)
+	GetSingleUserById(id uuid.UUID) (entities.User, error)
+	DeleteSingle(id uuid.UUID) (string, error)
 	DeleteAll()
 }

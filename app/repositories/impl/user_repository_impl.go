@@ -1,10 +1,12 @@
 package impl
 
 import (
+	"auth-service/app/common/exceptions"
 	"auth-service/app/entities"
 	"auth-service/app/repositories"
 	"context"
 	"errors"
+	"github.com/google/uuid"
 	"gorm.io/gorm"
 )
 
@@ -30,10 +32,42 @@ func (u userRepositoryImpl) Authentication(ctx context.Context, username string)
 	return userResult, nil
 }
 
-func (u userRepositoryImpl) Create(user repositories.User) {
+func (u userRepositoryImpl) Create(usr repositories.User) {
+	user := entities.User{
+		Username:       usr.Username,
+		Password:       usr.Password,
+		Email:          usr.Email,
+		FullName:       usr.FullName,
+		PhoneNumber:    usr.PhoneNumber,
+		ProfilePicture: usr.ProfilePicture,
+		RoleGroupId:    usr.RoleGroupId,
+		IsActive:       false,
+	}
+	err := u.DB.Create(&user).Error
+	exceptions.PanicLogging(err)
+}
 
+func (u userRepositoryImpl) GetSingleUserById(id uuid.UUID) (entities.User, error) {
+	user := entities.User{Uuid: id}
+	res := u.DB.Find(&user).Error
+	if res == nil {
+		return entities.User{}, errors.New("user not found")
+	}
+
+	return user, nil
+}
+
+func (u userRepositoryImpl) DeleteSingle(id uuid.UUID) (string, error) {
+	user := entities.User{Uuid: id}
+	res := u.DB.Delete(&user)
+	if res.RowsAffected == 0 {
+		return "", errors.New("user not found")
+	}
+
+	return "User with id {id} deleted", nil
 }
 
 func (u userRepositoryImpl) DeleteAll() {
-	
+	err := u.DB.Where("1=1").Delete(&entities.User{}).Error
+	exceptions.PanicLogging(err)
 }

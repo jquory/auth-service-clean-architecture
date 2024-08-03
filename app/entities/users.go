@@ -14,7 +14,7 @@ type User struct {
 	Email          *string   `gorm:"column:email;type:varchar(200);unique" json:"email"` // using pointer string to define nullable field
 	PhoneNumber    *string   `gorm:"column:phone_number;type:varchar(100)" json:"phoneNumber"`
 	ProfilePicture *string   `gorm:"column:profile_picture;type:varchar(200)" json:"profilePicture"`
-	RoleGroupId    int64     `gorm:"column:role_group_id;type:int" json:"roleGroupId"`
+	RoleGroupId    uuid.UUID `gorm:"column:role_group_id;type:int" json:"roleGroupId"`
 	IsActive       bool      `gorm:"column:is_active;type:boolean" json:"isActive"`
 	CreatedAt      time.Time
 	UpdatedAt      time.Time

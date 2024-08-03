@@ -1,11 +1,14 @@
 package entities
 
-import "time"
+import (
+	"github.com/google/uuid"
+	"time"
+)
 
 type Role struct {
-	Id        int64  `gorm:"primaryKey;autoIncrement" json:"id"`
-	Name      string `gorm:"column:role_name;type:varchar(100)" json:"roleName"`
-	GroupId   int64  `gorm:"column:group_id;type:int" json:"groupId"`
+	Uuid      uuid.UUID `gorm:"primaryKey;autoIncrement" json:"id"`
+	Name      string    `gorm:"column:role_name;type:varchar(100)" json:"roleName"`
+	GroupId   int64     `gorm:"column:group_id;type:int" json:"groupId"`
 	CreatedAt time.Time
 	UpdatedAt time.Time
 }
